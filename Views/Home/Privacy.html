@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pagina</title>
+    <link rel="stylesheet" href="StyleSheet.css"
+</head>
+<body>
+
+    <h1>Mi revista cientifica</h1>
+    <header class="header">
+        <div class="menu container">
+
+            <label for="menu">
+
+            </label>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="Index.cshtml">Inicio</a></li>
+                    <li><a href="Privacy.cshtml">Catalogo</a></li>
+
+
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <h1>Catalogo de productos</h1>
+    <div class="catalogo">
+
+
+        <div class="contenedor-producto">
+            <img src="image/rev1.jpg" alt="Muy interesante">
+            <h2>Muy interesante</h2>
+            <p>Revista cientifica de diferentes temas.</p>
+            <p>Precio: $80.00</p>
+            <button onclick="agregarAlCarrito('Muy interesante', 80.00)">Agregar al Carrito</button>
+        </div>
+
+        <div class="contenedor-producto">
+            <img src="image/rev5.jpg" alt="Inovacion y ciencia">
+            <h2>Inivacion y ciencia</h2>
+            <p>Revista cientifica sobre los fosiles.</p>
+            <p>Precio: $100.00</p>
+            <button onclick="agregarAlCarrito('Inovacion y ciencia', 100.00)">Agregar al Carrito</button>
+        </div>
+
+        <div class="contenedor-producto">
+            <img src="image/rev2.jpg" alt="Muy interesante junior">
+            <h2>Muy interesante junior</h2>
+            <p>Revista cientifica de diferentes temas dirigido a ninos.</p>
+            <p>Precio: $120.00</p>
+            <button onclick="agregarAlCarrito('Muy interesante junior', 120.00)">Agregar al Carrito</button>
+        </div>
+    </div>
+
+    <div id="carrito" class="carrito">
+        <h1>Carrito</h1>
+        <ul id="lista-carrito"><br /></ul>
+        <br />
+        <p id="total-carrito">Total: $0.00</p> <br />
+
+    </div>
+
+    <div id="sesion">
+        <!-- Formulario de inicio de sesión -->
+        <h1>Iniciar Sesion</h1>
+        <form id="loginForm">
+            <label for="username">Usuario:</label><br />
+            <input type="text" id="username" name="username" required><br />
+            <label for="password">Contrasena:</label><br />
+            <input type="password" id="password" name="password" required><br />
+            <input type="button" value="Iniciar Sesion" onclick="iniciarSesion()">
+        </form>
+    </div>
+
+
+    <script>
+        function iniciarSesion() {
+            // Aquí normalmente verificarías las credenciales con un backend
+            // Simulación de inicio de sesión
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Verificar si las credenciales son válidas (simulado)
+            if (username === 'bianca' && password === '1234') {
+                // Inicio de sesión exitoso
+                document.getElementById('sesion').style.display = 'none'; // Ocultar el formulario de inicio de sesión
+                document.getElementById('carrito').style.display = 'block'; // Mostrar el carrito después del inicio de sesión
+                document.getElementById('formulario-pago').style.display = 'block';
+                alert('Inicio de sesion exitoso');
+            } else {
+                // Credenciales incorrectas (simulado)
+                alert('Credenciales incorrectas. Intentalo de nuevo.');
+            }
+        }
+    </script>
+
+
+    <form id="formulario-pago" class="pago">
+        <h1>Pagar carrito</h1>
+        <label for="nombre-tarjeta">* Nombre en la Tarjeta:</label>
+        <input type="text" id="nombre-tarjeta" required><br><br>
+
+        <label for="numero-tarjeta">* Numero de Tarjeta:</label>
+        <input type="text" id="numero-tarjeta" required><br><br>
+
+        <label for="fecha-expiracion">* Fecha de Expiracion:</label>
+        <input type="text" id="fecha-expiracion" required><br><br>
+
+        <label for="cvv">* CVV:</label>
+        <input type="text" id="cvv" required><br><br>
+
+        <button onclick="mostrarVentanaEmergente()">Pagar</button>
+
+        <script>
+            function mostrarVentanaEmergente() {
+                // Contenido HTML para agregar a la ventana emergente
+                const contenido =
+                    `<html>
+                                                                            <head>
+                                                                              <title>Pago exitoso</title>
+                                                                            </head>
+                                                                            <body>
+                                                                              <h1>Tu pago se ha realizado con exito</h1>
+                                                                              <p> Tu numero de guia es 123456789 en la paqueteria DHL.</p>
+                                                                            </body>
+                                                                          </html>`;
+
+                // Abre una nueva ventana con el contenido especificado
+                const ventanaEmergente = window.open('', 'VentanaEmergente', 'width=400,height=300');
+                ventanaEmergente.document.write(contenido);
+            }
+        </script>
+    </form>
+
+
+    <script src="JavaScripts.js"></script>
+    <h3>Elaborado por: Bianca Asuncion Cruz Cruz</h3>
+</body>
+</html>
